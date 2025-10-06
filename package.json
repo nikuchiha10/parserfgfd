@@ -1,0 +1,33 @@
+{
+  "name": "telegram-knowledge-parser",
+  "version": "1.0.0",
+  "description": "Advanced Telegram bot for parsing knowledge base articles with intelligent search",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "bot": "node bot.js",
+    "install-deps": "chmod +x install-ubuntu.sh && ./install-ubuntu.sh",
+    "dev": "node --watch bot.js"
+  },
+  "dependencies": {
+    "telegraf": "^4.12.2",
+    "puppeteer": "^21.5.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "node-cron": "^3.0.3"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "parser",
+    "knowledge-base",
+    "puppeteer",
+    "automation"
+  ],
+  "author": "KnowledgeParser Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/telegram-knowledge-parser"
+  }
+}
