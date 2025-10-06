@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  telegram-knowledge-parser:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: knowledge-parser-bot
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
+      - ./logs:/app/logs
+      - ./config.js:/app/config.js:ro
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Chrome standalone service for remote debugging
+  chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: knowledge-parser-chrome
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+    shm_size: 2gb
+    environment:
+      - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
